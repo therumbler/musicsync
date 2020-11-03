@@ -5,7 +5,7 @@ module Tidal
     TOKEN = ENV["TIDAL_TOKEN"]
     def Tidal.call(endpoint, params)
         # url = "https://api.tidalhifi.com/v1/search?query=quincy&countryCode=CA&token=hZ9wuySZCmpLLiui"
-        url = "https://api.tidalhifi.com/v1/#{endpoint}?query"
+        url = "https://api.tidalhifi.com/v1/#{endpoint}"
         uri = URI(url)
         params["countryCode"] = "CA"
         params["token"] = TOKEN
@@ -21,6 +21,5 @@ module Tidal
 
     def Tidal.search(query)
         return call('search', {:query=>"quincy"})
-        # return Tidal.call("search")
     end
 end
