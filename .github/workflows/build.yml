@@ -10,4 +10,6 @@ jobs:
       - name: Build
         run: make build
       - name: Test
+        env:
+          TIDAL_TOKEN: ${{ secrets.TIDAL_TOKEN }}
         run: make test
