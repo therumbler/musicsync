@@ -16,7 +16,7 @@ module Tidal
             raise StandardError.new "resp error from #{uri} : #{resp.body} "
         end
         
-        # puts resp_hash
+        return resp_hash
     end
 
     def Tidal.search(query)
