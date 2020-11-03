@@ -11,8 +11,11 @@ module Tidal
         params["token"] = TOKEN
         uri.query = URI.encode_www_form(params)
         puts "fetching", uri
-        resp_string = Net::HTTP.get(uri)
-        resp_hash = JSON.parse(resp_string)
+        resp = Net::HTTP.get_response(uri)
+        if Integer(resp.code) >= 400
+            raise StandardError.new "resp error from " + uri.to_s
+        end
+        resp_hash = JSON.parse(resp.body)
         # puts resp_hash
     end
 
