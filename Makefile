@@ -7,4 +7,4 @@ run: build
 	docker run -e TIDAL_TOKEN=${TIDAL_TOKEN} musicsync
 
 test:
-	docker run musicsync
+	docker run -e TIDAL_TOKEN=${TIDAL_TOKEN} musicsync
