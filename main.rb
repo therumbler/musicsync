@@ -2,4 +2,4 @@
 $LOAD_PATH << '.'
 require 'lib/tidal'
 include Tidal
-puts Tidal.call
+puts Tidal.search('quincy')
