@@ -4,5 +4,7 @@ WORKDIR /app
 
 COPY . ./
 
+EXPOSE 2345
+
 ENTRYPOINT [ "ruby" ]
 CMD ["main.rb"]

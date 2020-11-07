@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Websocket Client</title>
+</head>
+<body>
+  <form action="#">
+      <button id="send">Send</button>
+  </form>
+  <div id="console"></div>
+  <script>
+    var $ = document.querySelector.bind(document);
+    var socket = new WebSocket("ws://localhost:2345");
+    socket.onopen = function (event) {
+        console.log('sending message...')
+        socket.send("Can you hear me?");
+    };
+    socket.onmessage = function (event) {
+      console.log(event.data);
+    }
+    socket.onerror = function(evt){
+        console.error('got an error', evt);
+        $("#console").innerHTML = "socket error";
+    }
+    $("#send").addEventListener("click", function(evt){
+        console.log("button clicked")
+        socket.send("button clicked")
+    })
+  </script>
+</body>
+</html>
